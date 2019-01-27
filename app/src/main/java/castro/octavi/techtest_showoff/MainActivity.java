@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity implements AuthenticationLis
                     appPreferences.putString(AppPreferences.USER_ID, jsonData.getString("id"));
                     appPreferences.putString(AppPreferences.USER_NAME, jsonData.getString("username"));
                     appPreferences.putString(AppPreferences.PROFILE_PIC, jsonData.getString("profile_picture"));
-
                     login();
                 }
             } catch (JSONException e) {
@@ -151,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements AuthenticationLis
                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                 jsonImage = jsonArray.getJSONObject(0).getJSONObject("images").getJSONObject("low_resolution");
                 appPreferences.putString(AppPreferences.RECENT_PIC, jsonImage.getString("url"));
+                login();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
